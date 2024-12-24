@@ -1,0 +1,29 @@
+name: Weekly Email Updates
+
+on:
+  schedule:
+    # Runs at 12:00 PM UTC every Monday
+    - cron: '0 23 * * 2'
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  send-emails:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run email script
+        env:
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+        run: node main.js
