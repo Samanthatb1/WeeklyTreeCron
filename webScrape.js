@@ -72,9 +72,12 @@ function eventIsUseful(name, link){
               "mentor", "mentee", "mailing", "role description", "photos", "resources",
               "exam bank", "feedback", "elections", "email", "medium", "exec",
               "housing", "open roles", "open positions", "youth events", "hiring",
-              "Photographer Application", "Become a CSC Member!"]
+              "Photographer Application", "Become a CSC Member!", "External Cheat Sheet",
+              "loving Remembrance of", "EngSoc Finance (Budget, Sponsorship)",
+              "Mental Health Guide", "UW Campus Wellness", "Listen to our Podcast on Spotify",
+              ]
   for (const keyword of keywords){
-    if(name.toLowerCase().includes(keyword) || name === "" || link === "") {
+    if(name.toLowerCase().includes(keyword.toLowerCase()) || name === "" || link === "") {
       return false
     }
   }
