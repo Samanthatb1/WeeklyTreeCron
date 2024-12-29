@@ -80,7 +80,7 @@ function eventIsUseful(name, link) {
     // Early return if the link or name is empty
     if (name === "" || link === "") return false;
     // `.some()` runs the callback function on each element in the array `BLOCKED_KEYWORDS`
-    return !BLOCKED_KEYWORDS.some((keyword) => name.toLowerCase().includes(keyword));
+    return !BLOCKED_KEYWORDS.some((keyword) => name.toLowerCase().includes(keyword.toLowerCase()));
 }
 
 export { memoizedData }
